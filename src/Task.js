@@ -11,4 +11,7 @@ function Task(title, notes, duedate, priority) {
         complete: false,
     };
 }
-export { Task };
+function Project(name) {
+    return { uid: generateUID(), name, list: [] };
+}
+export { Task, Project };
