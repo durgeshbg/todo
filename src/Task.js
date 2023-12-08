@@ -17,4 +17,7 @@ function Project(name) {
 function addTask(project, task) {
     if (!project.list.includes(task)) project.list.push(task);
 }
-export { Task, Project, addTask };
+function getTask(project, uid) {
+    return project.list.find((task) => task.uid == uid);
+}
+export { Task, Project, addTask, getTask };
