@@ -14,4 +14,7 @@ function Task(title, notes, duedate, priority) {
 function Project(name) {
     return { uid: generateUID(), name, list: [] };
 }
-export { Task, Project };
+function addTask(project, task) {
+    if (!project.list.includes(task)) project.list.push(task);
+}
+export { Task, Project, addTask };
