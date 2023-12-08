@@ -20,4 +20,8 @@ function addTask(project, task) {
 function getTask(project, uid) {
     return project.list.find((task) => task.uid == uid);
 }
-export { Task, Project, addTask, getTask };
+function deleteTask(project, uid) {
+    let index = project.list.findIndex((task) => task.uid == uid);
+    project.list.splice(index, 1);
+}
+export { Task, Project, addTask, deleteTask, getTask };
