@@ -8,6 +8,6 @@ export function getStore() {
     return JSON.parse(projects);
 }
 export function setStore(projects) {
-    let projects = JSON.stringify(projects);
+    projects = JSON.stringify(projects);
     localStorage.setItem('projects', projects);
 }
