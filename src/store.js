@@ -3,4 +3,7 @@ export function init() {
         localStorage.setItem('projects', JSON.stringify({}));
     }
 }
-
+export function getStore() {
+    let projects = localStorage.getItem('projects');
+    return JSON.parse(projects);
+}
