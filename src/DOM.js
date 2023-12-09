@@ -11,3 +11,8 @@ export function displayForm(e) {
     }
     form.style.display = '';
 }
+
+export function closeForm(e) {
+    let div = e.target.parentElement;
+    div.parentElement.style.display = 'none';
+}
