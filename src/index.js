@@ -1,9 +1,11 @@
 import { init, getStore, setStore } from './store';
 import { Task, Project, addTask, deleteTask, getTask } from './Task';
-import { getDOM, displayForm, closeForm } from './DOM';
+import { getDOM, displayForm, closeForm, handleSubmit } from './DOM';
 
 init();
 getDOM('.add-project').onclick = displayForm;
 getDOM('.add-task').onclick = displayForm;
 getDOM('.task-form button[type="reset"]').onclick = closeForm;
 getDOM('.project-form button[type="reset"]').onclick = closeForm;
+getDOM('.task-form').onsubmit = handleSubmit;
+getDOM('.project-form').onsubmit = handleSubmit;
