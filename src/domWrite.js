@@ -1,4 +1,5 @@
 import { getDOM } from './domEvents';
+import { writeProject } from './projectTemplate';
 import { getProject, getStore } from './store';
 import { writeTask } from './taskTemplate';
 
@@ -8,10 +9,7 @@ export function writeProjectsBar() {
     let projects = getStore();
     for (let uid in projects) {
         let project = projects[uid];
-        let projectdiv = document.createElement('div');
-        projectdiv.classList.add(uid, 'project');
-        projectdiv.innerHTML = `<div class="name">${project.name}</div> <div class="trash">x</div>`;
-        projectdiv.onclick = writeTasksBar;
+        let projectdiv = writeProject(project);
         projectsBar.appendChild(projectdiv);
     }
 }
