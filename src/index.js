@@ -1,6 +1,6 @@
 import { init, getStore, setStore } from './store';
 import { Task, Project, addTask, deleteTask, getTask } from './Task';
-import { getDOM, displayForm, closeForm, handleSubmit } from './DOM';
+import { getDOM, displayForm, closeForm, handleSubmit } from './domEvents';
 
 init();
 getDOM('.add-project').onclick = displayForm;
