@@ -1,6 +1,6 @@
 export function writeTask(task) {
     let taskdiv = document.createElement('div');
-    taskdiv.classList.add('task');
+    taskdiv.classList.add(task.uid, 'task');
 
     let taskTop = TaskTop(task.title, task.notes);
     let widgets = Widgets(task.priority, task.duedate);
@@ -71,5 +71,5 @@ function ButtonsDiv() {
     buttons.appendChild(trash);
     buttons.appendChild(edit);
 
-    return buttons
+    return buttons;
 }
