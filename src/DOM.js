@@ -16,3 +16,11 @@ export function closeForm(e) {
     dialog = getDOM(`#${category}-dialog`);
     dialog.close();
 }
+
+export function handleSubmit(e) {
+    let data = new FormData(e.target);
+    let category = e.target.classList[0];
+    if (category == 'project-form') createProject(data);
+    else createTask(data);
+    e.preventDefault();
+}
