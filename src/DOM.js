@@ -1,3 +1,5 @@
+import { Project } from './Task';
+
 export function getDOM(q) {
     return document.querySelector(q);
 }
@@ -22,5 +24,13 @@ export function handleSubmit(e) {
     let category = e.target.classList[0];
     if (category == 'project-form') createProject(data);
     else createTask(data);
+    e.target.reset();
     e.preventDefault();
+    closeForm(e);
+}
+
+export function createProject(data) {
+    let projectName = data.get('name');
+    let project = Project(projectName);
+    console.log(project)
 }
