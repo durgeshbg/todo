@@ -1,4 +1,5 @@
 import { Project } from './Task';
+import { getStore, setStore } from './store';
 
 export function getDOM(q) {
     return document.querySelector(q);
@@ -32,5 +33,7 @@ export function handleSubmit(e) {
 export function createProject(data) {
     let projectName = data.get('name');
     let project = Project(projectName);
-    console.log(project)
+    let projects = getStore();
+    projects = { ...projects, [project.uid]: project };
+    setStore(projects);
 }
