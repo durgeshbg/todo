@@ -11,3 +11,7 @@ export function setStore(projects) {
     projects = JSON.stringify(projects);
     localStorage.setItem('projects', projects);
 }
+export function getProject(uid) {
+    let projects = getStore();
+    return projects[uid];
+}
