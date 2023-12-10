@@ -1,4 +1,5 @@
 import { Project, Task } from './Task';
+import { writeProjectsBar } from './domWrite';
 import { getStore, setStore } from './store';
 
 export function getDOM(q) {
@@ -36,6 +37,7 @@ function createProject(data) {
     let projects = getStore();
     projects = { ...projects, [project.uid]: project };
     setStore(projects);
+    writeProjectsBar();
 }
 
 function createTask(data) {
