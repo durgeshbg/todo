@@ -3,13 +3,14 @@ import { getProject, getStore } from './store';
 import { writeTask } from './taskTemplate';
 
 export function writeProjectsBar() {
-    const projectsBar = getDOM('.projects');
+    const projectsBar = getDOM('.projects .dynamic');
+    projectsBar.innerHTML = "";
     let projects = getStore();
     for (let uid in projects) {
         let project = projects[uid];
         let projectdiv = document.createElement('div');
         projectdiv.classList.add(uid, 'project');
-        projectdiv.innerHTML = `${project.name} <div class="trash">x</div>`;
+        projectdiv.innerHTML = `<div class="name">${project.name}</div> <div class="trash">x</div>`;
         projectdiv.onclick = writeTasksBar;
         projectsBar.appendChild(projectdiv);
     }
