@@ -1,4 +1,4 @@
-import { Project } from './Task';
+import { Project, Task } from './Task';
 import { getStore, setStore } from './store';
 
 export function getDOM(q) {
@@ -30,10 +30,19 @@ export function handleSubmit(e) {
     closeForm(e);
 }
 
-export function createProject(data) {
+function createProject(data) {
     let projectName = data.get('name');
     let project = Project(projectName);
     let projects = getStore();
     projects = { ...projects, [project.uid]: project };
     setStore(projects);
+}
+
+function createTask(data) {
+    let title = data.get('title');
+    let notes = data.get('notes');
+    let date = data.get('date');
+    let priority = data.get('priority');
+    let task = Task(title, notes, date, priority);
+    console.log(task);
 }
