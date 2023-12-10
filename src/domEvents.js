@@ -5,6 +5,9 @@ import { getStore, setStore } from './store';
 export function getDOM(q) {
     return document.querySelector(q);
 }
+export function getallDOM(q) {
+    return document.querySelectorAll(q);
+}
 export function displayForm(e) {
     let dialog;
     let category = e.target.classList[1];
