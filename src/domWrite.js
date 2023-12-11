@@ -33,16 +33,11 @@ export function writeTasksBar(e) {
     }
 }
 
-function activeProject(e) {
-    const classArr = Array.from(e.target.classList);
-    let projectElem;
-    let projectArr;
+export function activeProject(projectElem) {
+    let projectArr = Array.from(projectElem.classList);
 
-    if (classArr.includes('name')) {
-        projectElem = e.target.parentElement;
-        projectArr = Array.from(projectElem.classList);
-    } else {
-        projectElem = e.target;
+    if (projectArr.includes('name')) {
+        projectElem = projectElem.parentElement;
         projectArr = Array.from(projectElem.classList);
     }
 
@@ -52,5 +47,4 @@ function activeProject(e) {
         });
         projectElem.classList.add('active');
     }
-    return projectArr[0];
 }
