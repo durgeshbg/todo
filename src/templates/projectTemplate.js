@@ -1,4 +1,4 @@
-import { writeTasksBar } from './domWrite';
+import { writeTasksBar } from '../domWrite';
 
 export function writeProject(project) {
     let projectdiv = document.createElement('div');
