@@ -19,13 +19,13 @@ export function getTasks(uid) {
     let tasks = [];
     let projects = getStore();
     if (uid == 'all') {
-        console.log(uid);
+        for (let uid in projects) tasks = tasks.concat(getProject(uid).list);
     } else if (uid == 'this-week') {
         console.log(uid);
     } else if (uid == 'today') {
         console.log(uid);
     } else {
-        console.log(uid);
+        return getProject(uid).list;
     }
     return tasks;
 }
