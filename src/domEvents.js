@@ -1,9 +1,11 @@
 import {
     getDOM,
+    getallDOM,
     displayForm,
     closeForm,
     handleSubmit,
 } from './domControllers';
+import { writeProjectsBar, writeTasksBar } from './domWrite';
 
 export function FormEvents() {
     getDOM('.add-project').onclick = displayForm;
@@ -14,4 +16,9 @@ export function FormEvents() {
     getDOM('.project-form').onsubmit = handleSubmit;
 }
 
-
+export function ProjectBarEvents() {
+    getallDOM('.project').forEach((project) => {
+        project.onclick = writeTasksBar;
+    });
+    writeProjectsBar();
+}
