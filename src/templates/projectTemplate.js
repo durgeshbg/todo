@@ -1,4 +1,4 @@
-import { writeTasksBar } from '../domWrite';
+import { activeProject } from '../domWrite';
 
 export function writeProject(project) {
     let projectdiv = document.createElement('div');
@@ -9,7 +9,7 @@ export function writeProject(project) {
 
     name.classList.add('name');
     name.textContent = project.name;
-    name.onclick = writeTasksBar;
+    name.onclick = (e) => activeProject(e.target);
 
     trash.classList.add('trash');
     trash.textContent = 'x';
