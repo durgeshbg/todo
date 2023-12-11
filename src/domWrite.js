@@ -1,7 +1,7 @@
-import { getDOM } from './domEvents';
-import { writeProject } from './projectTemplate';
+import { getDOM } from './domControllers';
+import { writeProject } from './templates/projectTemplate';
 import { getProject, getStore } from './store';
-import { writeTask } from './taskTemplate';
+import { writeTask } from './templates/taskTemplate';
 
 export function writeProjectsBar() {
     const projectsBar = getDOM('.projects .dynamic');
