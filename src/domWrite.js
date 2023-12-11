@@ -1,6 +1,6 @@
 import { getDOM } from './domControllers';
 import { writeProject } from './templates/projectTemplate';
-import { getProject, getStore } from './store';
+import { getProject, getStore, getTasks } from './store';
 import { writeTask } from './templates/taskTemplate';
 
 export function writeProjectsBar() {
@@ -14,23 +14,16 @@ export function writeProjectsBar() {
     }
 }
 
-export function writeTasksBar(e) {
-    let uid = activeProject(e);
-    if (uid == 'all') {
-        console.log(uid);
-    } else if (uid == 'this-week') {
-        console.log(uid);
-    } else if (uid == 'today') {
-        console.log(uid);
-    } else {
-        let tasks = getProject(uid).list;
-        let taskBar = getDOM('.tasks');
-        taskBar.innerHTML = '';
-        tasks.forEach((task) => {
-            let taskdiv = writeTask(task);
-            taskBar.appendChild(taskdiv);
-        });
-    }
+export function writeTasksBar() {
+    const uid = getDOM('.active').classList[0];
+    const taskBar = getDOM('.tasks');
+    let tasks = getTasks(uid);
+
+    taskBar.innerHTML = '';
+    tasks.forEach((task) => {
+        let taskdiv = writeTask(task);
+        taskBar.appendChild(taskdiv);
+    });
 }
 
 export function activeProject(projectElem) {
