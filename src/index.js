@@ -1,5 +1,9 @@
-import { FormEvents as initFormEvents } from './domEvents';
+import {
+    FormEvents as initFormEvents,
+    ProjectBarEvents as initProjectBarEvents,
+} from './domEvents';
 import { init as initStore } from './store';
 
 initStore();
 initFormEvents();
+initProjectBarEvents();
