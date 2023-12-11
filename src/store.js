@@ -15,3 +15,17 @@ export function getProject(uid) {
     let projects = getStore();
     return projects[uid];
 }
+export function getTasks(uid) {
+    let tasks = [];
+    let projects = getStore();
+    if (uid == 'all') {
+        console.log(uid);
+    } else if (uid == 'this-week') {
+        console.log(uid);
+    } else if (uid == 'today') {
+        console.log(uid);
+    } else {
+        console.log(uid);
+    }
+    return tasks;
+}
