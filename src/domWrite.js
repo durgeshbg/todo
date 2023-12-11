@@ -40,4 +40,5 @@ export function activeProject(projectElem) {
         });
         projectElem.classList.add('active');
     }
+    writeTasksBar();
 }
