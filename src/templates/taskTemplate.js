@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 export function writeTask(task) {
     let taskdiv = document.createElement('div');
     taskdiv.classList.add(task.uid, 'task');
@@ -47,7 +49,7 @@ function Widgets(taskPriority, taskDuedate) {
 
     let date = document.createElement('div');
     date.classList.add('date');
-    date.textContent = taskDuedate;
+    date.textContent = format(new Date(taskDuedate), 'dd-MM-yyyy');
     widgets.appendChild(date);
 
     let buttons = ButtonsDiv();
