@@ -1,4 +1,4 @@
-import { activeProject } from '../domWrite';
+import { activeProject, removeProject } from '../domWrite';
 
 export function writeProject(project) {
     let projectdiv = document.createElement('div');
@@ -13,6 +13,7 @@ export function writeProject(project) {
 
     trash.classList.add('trash');
     trash.textContent = 'x';
+    trash.onclick = removeProject;
 
     projectdiv.appendChild(name);
     projectdiv.appendChild(trash);
