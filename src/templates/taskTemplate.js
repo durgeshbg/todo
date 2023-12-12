@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+import { removeTask } from '../domControllers';
 
 export function writeTask(task) {
     let taskdiv = document.createElement('div');
@@ -65,6 +66,7 @@ function ButtonsDiv() {
     let trash = document.createElement('div');
     trash.classList.add('trash');
     trash.textContent = 'x';
+    trash.onclick = removeTask;
 
     let edit = document.createElement('div');
     edit.classList.add('edit');
