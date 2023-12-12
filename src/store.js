@@ -1,4 +1,4 @@
-import { isToday } from 'date-fns';
+import { isThisWeek, isToday } from 'date-fns';
 
 export function init() {
     if (!localStorage.getItem('projects')) {
@@ -24,7 +24,7 @@ export function getTasks(uid) {
     if (uid == 'all') {
         return tasks;
     } else if (uid == 'this-week') {
-        console.log(uid);
+        return tasks.filter((task) => isThisWeek(new Date(task.duedate)));
     } else if (uid == 'today') {
         return tasks.filter((task) => isToday(new Date(task.duedate)));
     } else {
