@@ -16,6 +16,7 @@ function Project(name) {
 }
 function addTask(project, task) {
     if (!project.list.includes(task)) project.list.push(task);
+    return project;
 }
 function getTask(project, uid) {
     return project.list.find((task) => task.uid == uid);
@@ -23,5 +24,6 @@ function getTask(project, uid) {
 function deleteTask(project, uid) {
     let index = project.list.findIndex((task) => task.uid == uid);
     project.list.splice(index, 1);
+    return project;
 }
 export { Task, Project, addTask, deleteTask, getTask };
