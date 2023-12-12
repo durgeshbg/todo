@@ -5,18 +5,29 @@ export function init() {
         localStorage.setItem('projects', JSON.stringify({}));
     }
 }
+
 export function getStore() {
     let projects = localStorage.getItem('projects');
     return JSON.parse(projects);
 }
+
 export function setStore(projects) {
     projects = JSON.stringify(projects);
     localStorage.setItem('projects', projects);
 }
+
 export function getProject(uid) {
     let projects = getStore();
     return projects[uid];
 }
+
+export function deleteProject(uid) {
+    let projects = getStore();
+    delete projects[uid];
+    console.log(projects);
+    setStore(projects);
+}
+
 export function getTasks(uid) {
     let tasks = [];
     let projects = getStore();
