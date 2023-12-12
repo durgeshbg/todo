@@ -1,7 +1,10 @@
+import { format } from 'date-fns';
+
 function generateUID() {
     return Date.now().toString(32) + Math.random().toString(32).slice(2);
 }
 function Task(title, notes, duedate, priority) {
+    duedate = duedate == '' ? format(new Date(), 'yyyy-MM-dd') : duedate;
     return {
         uid: generateUID(),
         title,
