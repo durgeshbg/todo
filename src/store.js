@@ -2,7 +2,8 @@ import { isThisWeek, isToday } from 'date-fns';
 
 export function init() {
     if (!localStorage.getItem('projects')) {
-        localStorage.setItem('projects', JSON.stringify({}));
+        const defaultUID = { uid: 'defaultUID', name: 'default', list: [] };
+        localStorage.setItem('projects', JSON.stringify({ defaultUID }));
     }
 }
 
@@ -24,7 +25,6 @@ export function getProject(uid) {
 export function deleteProject(uid) {
     let projects = getStore();
     delete projects[uid];
-    console.log(projects);
     setStore(projects);
 }
 
