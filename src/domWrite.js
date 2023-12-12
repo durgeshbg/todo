@@ -1,6 +1,6 @@
 import { getDOM } from './domControllers';
 import { writeProject } from './templates/projectTemplate';
-import { getProject, getStore, getTasks } from './store';
+import { deleteProject, getStore, getTasks } from './store';
 import { writeTask } from './templates/taskTemplate';
 
 export function writeProjectsBar() {
@@ -12,6 +12,13 @@ export function writeProjectsBar() {
         let projectdiv = writeProject(project);
         projectsBar.appendChild(projectdiv);
     }
+}
+
+export function removeProject(e) {
+    const parent = e.target.parentElement;
+    deleteProject(parent.classList[0]);
+    writeProjectsBar();
+    activeProject(getDOM('.all'));
 }
 
 export function writeTasksBar() {
