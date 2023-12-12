@@ -8,6 +8,7 @@ export function writeProjectsBar() {
     projectsBar.innerHTML = '';
     let projects = getStore();
     for (let uid in projects) {
+        if (uid === 'defaultUID') continue;
         let project = projects[uid];
         let projectdiv = writeProject(project);
         projectsBar.appendChild(projectdiv);
