@@ -23,7 +23,7 @@ function TaskTop(taskTitle, taskNotes) {
 
     let notes = document.createElement('div');
     notes.classList.add('notes');
-    notes.textContent = taskNotes;
+    notes.textContent = taskNotes == '' ? 'No notes' : taskNotes;
 
     let input = document.createElement('input');
     input.type = 'checkbox';
