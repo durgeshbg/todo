@@ -1,5 +1,5 @@
-import { Project, Task } from './Task';
-import { writeProjectsBar } from './domWrite';
+import { Project, Task, addTask } from './Task';
+import { activeProject, writeProjectsBar } from './domWrite';
 import { getStore, setStore } from './store';
 
 export function getDOM(q) {
@@ -44,10 +44,24 @@ function createProject(data) {
 }
 
 function createTask(data) {
-    let title = data.get('title');
-    let notes = data.get('notes');
-    let date = data.get('date');
-    let priority = data.get('priority');
-    let task = Task(title, notes, date, priority);
-    console.log(task);
+    const task = Task(
+        data.get('title'),
+        data.get('notes'),
+        data.get('date'),
+        data.get('priority')
+    );
+    const activeElem = getDOM('.active');
+    const uid = activeElem.classList[0];
+    let projects = getStore();
+    let project;
+
+    if (projects.hasOwnProperty(uid)) {
+        project = projects[uid];
+    } else {
+        project = projects['defaultUID'];
+    }
+    project = addTask(project, task);
+    projects = { [project.uid]: project, ...projects };
+    setStore(projects);
+    activeProject(activeElem);
 }
