@@ -115,3 +115,19 @@ function mutateTask(data) {
     setStore(projects);
     activeProject(getDOM('.active'));
 }
+
+export function checkTask(e) {
+    const taskUID = e.target.parentElement.parentElement.classList[0];
+    let projects = getStore();
+    for (let uid in projects) {
+        const tasks = projects[uid].list;
+        tasks.forEach((task) => {
+            if (task.uid == taskUID) {
+                task.complete = !task.complete;
+                projects[uid] = updateTask(projects[uid], task);
+            }
+        });
+    }
+    setStore(projects);
+    activeProject(getDOM('.active'));
+}
