@@ -24,8 +24,9 @@ body {
 /* ------------------- HEADING ------------------- */
 h1 {
     color: #343434;
-    text-shadow: 15px 15px 15px #343434;
+    text-shadow: 2px 2px 5px white;
     font-size: 4rem;
+    text-decoration: underline;
 }
 /* ------------------- MAIN PANEL ------------------- */
 .panel {
@@ -169,7 +170,7 @@ h2 {
     height: 10px;
     border-radius: 50%;
 }
-.priority.low{
+.priority.low {
     background-color: green;
 }
 .priority.medium {
