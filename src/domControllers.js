@@ -30,7 +30,6 @@ function updateForm(task) {
     }
 }
 
-
 export function handleSubmit(e) {
     let data = new FormData(e.target);
     let category = e.target.classList[0];
@@ -49,7 +48,7 @@ export function editTask(e) {
         let tasklist = projects[uid].list;
         tasklist.forEach((task) => {
             if (task.uid == taskUID) {
-                console.log("Found");
+                updateForm(task);
             }
         });
     }
