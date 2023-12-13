@@ -25,7 +25,7 @@ export function handleSubmit(e) {
     else createTask(data);
     e.target.reset();
     e.preventDefault();
-    closeForm(e);
+    closeForm(category.split('-')[0]);
 }
 
 export function removeTask(e) {
