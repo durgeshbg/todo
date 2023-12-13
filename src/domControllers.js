@@ -1,4 +1,4 @@
-import { Project, Task, addTask, deleteTask, getTask } from './Task';
+import { Project, Task, addTask, deleteTask, updateTask } from './Task';
 import { activeProject, writeProjectsBar } from './domWrite';
 import { getStore, setStore } from './store';
 
@@ -97,7 +97,14 @@ function createTask(data) {
     } else {
         project = projects['defaultUID'];
     }
-    project = addTask(project, task);
+
+    if (data.get('uid') == '') {
+        project = addTask(project, task);
+    } else {
+        task.uid = data.get('uid');
+        project = updateTask(project, task);
+    }
+
     projects = { [project.uid]: project, ...projects };
     setStore(projects);
     activeProject(activeElem);
