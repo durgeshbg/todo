@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="#" type="image/x-icon" />
+        <title>ToDo</title>
+        <script src="./main.js" defer></script>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>ToDo</h1>
+        <div class="panel">
+            <div class="sidebar">
+                <h2>
+                    Panel
+                    <div class="add add-project">+</div>
+                </h2>
+                <div class="projects">
+                    <div class="static">
+                        <div class="all project active">All</div>
+                        <div class="today project">Today</div>
+                        <div class="this-week project">This week</div>
+                    </div>
+                    <div class="dynamic"></div>
+                </div>
+                <dialog id="project-dialog">
+                    <form class="project-form" method="dialog">
+                        <input
+                            name="name"
+                            id="project-name"
+                            type="text"
+                            maxlength="15"
+                            placeholder="Name"
+                            required
+                        />
+                        <div>
+                            <button type="submit">&#x2713;</button>
+                            <button class="project-close" type="reset">
+                                X
+                            </button>
+                        </div>
+                    </form>
+                </dialog>
+            </div>
+            <div class="taskbar">
+                <h2>
+                    Tasks
+                    <div class="add add-task">+</div>
+                </h2>
+                <div class="tasks">
+                    <div class="task">
+                        <label class="task-top">
+                            <div class="title">Flour</div>
+                            <div class="notes">No notes</div>
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                        </label>
+                        <div class="widgets">
+                            <div class="priority high"></div>
+                            <div class="date">27/12/2003</div>
+                            <div class="task-buttons">
+                                <div class="trash">x</div>
+                                <div class="edit">&#9998;</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <dialog id="task-dialog">
+                    <form class="task-form" method="dialog">
+                        <input
+                            name="title"
+                            class="title"
+                            type="text"
+                            maxlength="15"
+                            placeholder="Title"
+                            required
+                        />
+                        <input
+                            name="notes"
+                            class="notes"
+                            type="text"
+                            maxlength="50"
+                            placeholder="Notes"
+                        />
+                        <input name="date" class="date" type="date" />
+                        <input
+                            type="text"
+                            name="uid"
+                            class="uid"
+                            value=""
+                            hidden
+                        />
+                        <div class="priority">
+                            <label name="priority" for="low">
+                                <input
+                                    type="radio"
+                                    name="priority"
+                                    value="low"
+                                    id="low"
+                                />
+                                Low
+                            </label>
+                            <label name="priority" for="medium">
+                                <input
+                                    type="radio"
+                                    name="priority"
+                                    value="medium"
+                                    id="medium"
+                                />
+                                Medium
+                            </label>
+                            <label name="priority" for="high">
+                                <input
+                                    type="radio"
+                                    name="priority"
+                                    value="high"
+                                    id="high"
+                                />
+                                High
+                            </label>
+                        </div>
+                        <div class="buttons">
+                            <button type="submit">&#x2713;</button>
+                            <button class="task-close" type="reset">X</button>
+                        </div>
+                    </form>
+                </dialog>
+            </div>
+        </div>
+        <div class="footer">
+            <div>Copyright &copy; 2023</div>
+            <a href="https://github.com/durgeshbg" target="_blank">durgeshbg</a>
+            <img src="./assets/gh-logo.svg" />
+        </div>
+    </body>
+</html>
