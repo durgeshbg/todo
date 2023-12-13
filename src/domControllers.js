@@ -1,4 +1,11 @@
-import { Project, Task, addTask, deleteTask, updateTask } from './Task';
+import {
+    Project,
+    Task,
+    addTask,
+    deleteTask,
+    getTask,
+    updateTask,
+} from './Task';
 import { activeProject, writeProjectsBar } from './domWrite';
 import { getStore, setStore } from './store';
 
@@ -59,12 +66,8 @@ export function removeTask(e) {
         e.target.parentElement.parentElement.parentElement.classList[0];
     let projects = getStore();
     for (let uid in projects) {
-        let tasklist = projects[uid].list;
-        tasklist.forEach((task) => {
-            if (task.uid == taskUID) {
-                projects[uid] = deleteTask(projects[uid], task);
-            }
-        });
+        const task = getTask(projects[uid], taskUID);
+        if (task) projects[uid] = deleteTask(projects[uid], task);
     }
     setStore(projects);
     activeProject(getDOM('.active'));
