@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { editTask, removeTask } from '../domControllers';
+import { editTask, removeTask, checkTask } from '../domControllers';
 
 export function writeTask(task) {
     let taskdiv = document.createElement('div');
@@ -29,6 +29,7 @@ function TaskTop(taskTitle, taskNotes, taskComplete) {
     let input = document.createElement('input');
     input.type = 'checkbox';
     input.checked = taskComplete;
+    input.onclick = checkTask;
     if (input.checked) taskTop.classList.add('strike');
 
     let span = document.createElement('span');
