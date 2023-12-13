@@ -87,23 +87,12 @@ function createTask(data) {
     );
     const activeElem = getDOM('.active');
     const uid = activeElem.classList[0];
-    let projects = getStore();
-    let project;
-
+    const projects = getStore();
     if (projects.hasOwnProperty(uid)) {
-        project = projects[uid];
+        projects[uid] = addTask(projects[uid], task);
     } else {
-        project = projects['defaultUID'];
+        projects['defaultUID'] = addTask(projects['defaultUID'], task);
     }
-
-    if (data.get('uid') == '') {
-        project = addTask(project, task);
-    } else {
-        task.uid = data.get('uid');
-        project = updateTask(project, task);
-    }
-
-    projects = { [project.uid]: project, ...projects };
     setStore(projects);
     activeProject(activeElem);
 }
