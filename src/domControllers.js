@@ -41,6 +41,7 @@ export function handleSubmit(e) {
     let data = new FormData(e.target);
     let category = e.target.classList[0];
     if (category == 'project-form') createProject(data);
+    else if (data.get('uid')) mutateTask(data);
     else createTask(data);
     e.target.reset();
     e.preventDefault();
@@ -95,4 +96,22 @@ function createTask(data) {
     }
     setStore(projects);
     activeProject(activeElem);
+}
+
+function mutateTask(data) {
+    const task = Task(
+        data.get('title'),
+        data.get('notes'),
+        data.get('date'),
+        data.get('priority')
+    );
+    const projects = getStore();
+    task.uid = data.get('uid');
+    for (let uid in projects) {
+        if (getTask(projects[uid], task.uid)) {
+            projects[uid] = updateTask(projects[uid], task);
+        }
+    }
+    setStore(projects);
+    activeProject(getDOM('.active'));
 }
