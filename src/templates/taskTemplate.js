@@ -5,7 +5,7 @@ export function writeTask(task) {
     let taskdiv = document.createElement('div');
     taskdiv.classList.add(task.uid, 'task');
 
-    let taskTop = TaskTop(task.title, task.notes);
+    let taskTop = TaskTop(task.title, task.notes, task.complete);
     let widgets = Widgets(task.priority, task.duedate);
 
     taskdiv.appendChild(taskTop);
@@ -14,7 +14,7 @@ export function writeTask(task) {
     return taskdiv;
 }
 
-function TaskTop(taskTitle, taskNotes) {
+function TaskTop(taskTitle, taskNotes, taskComplete) {
     let taskTop = document.createElement('label');
     taskTop.classList.add('task-top');
 
@@ -28,6 +28,8 @@ function TaskTop(taskTitle, taskNotes) {
 
     let input = document.createElement('input');
     input.type = 'checkbox';
+    input.checked = taskComplete;
+    if (input.checked) taskTop.classList.add('strike');
 
     let span = document.createElement('span');
     span.classList.add('checkmark');
