@@ -52,12 +52,8 @@ export function editTask(e) {
         e.target.parentElement.parentElement.parentElement.classList[0];
     const projects = getStore();
     for (let uid in projects) {
-        let tasklist = projects[uid].list;
-        tasklist.forEach((task) => {
-            if (task.uid == taskUID) {
-                updateForm(task);
-            }
-        });
+        const task = getTask(projects[uid], taskUID);
+        if (task) updateForm(task);
     }
 }
 
