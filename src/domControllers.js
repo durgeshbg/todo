@@ -28,6 +28,20 @@ export function handleSubmit(e) {
     closeForm(category.split('-')[0]);
 }
 
+export function editTask(e) {
+    const taskUID =
+        e.target.parentElement.parentElement.parentElement.classList[0];
+    const projects = getStore();
+    for (let uid in projects) {
+        let tasklist = projects[uid].list;
+        tasklist.forEach((task) => {
+            if (task.uid == taskUID) {
+                console.log("Found");
+            }
+        });
+    }
+}
+
 export function removeTask(e) {
     const taskUID =
         e.target.parentElement.parentElement.parentElement.classList[0];
