@@ -8,19 +8,13 @@ export function getDOM(q) {
 export function getallDOM(q) {
     return document.querySelectorAll(q);
 }
-export function displayForm(e) {
-    let dialog;
-    let category = e.target.classList[1];
-    category = category.split('-')[1];
-    dialog = getDOM(`#${category}-dialog`);
+export function displayForm(category) {
+    const dialog = getDOM(`#${category}-dialog`);
     dialog.show();
 }
 
-export function closeForm(e) {
-    let dialog;
-    let category = e.target.classList[0];
-    category = category.split('-')[0];
-    dialog = getDOM(`#${category}-dialog`);
+export function closeForm(category) {
+    const dialog = getDOM(`#${category}-dialog`);
     dialog.close();
 }
 
