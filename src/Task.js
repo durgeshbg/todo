@@ -18,7 +18,15 @@ function Project(name) {
     return { uid: generateUID(), name, list: [] };
 }
 function addTask(project, task) {
-    if (!project.list.includes(task)) project.list.push(task);
+    project.list.push(task);
+    return project;
+}
+function updateTask(project, task) {
+    project.list.forEach((t, i) => {
+        if (t.uid == task.uid) {
+            project.list[i] = task;
+        }
+    });
     return project;
 }
 function getTask(project, uid) {
@@ -29,4 +37,4 @@ function deleteTask(project, uid) {
     project.list.splice(index, 1);
     return project;
 }
-export { Task, Project, addTask, deleteTask, getTask };
+export { Task, Project, addTask, deleteTask, getTask, updateTask };
