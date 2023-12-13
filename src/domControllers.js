@@ -18,6 +18,19 @@ export function closeForm(category) {
     dialog.close();
 }
 
+function updateForm(task) {
+    displayForm('task');
+    getDOM('.task-form').reset();
+    getDOM('.task-form .title').value = task.title;
+    getDOM('.task-form .notes').value = task.notes;
+    getDOM('.task-form .date').value = task.duedate;
+    getDOM('.task-form .uid').value = task.uid;
+    if (task.priority !== null) {
+        getDOM(`.task-form #${task.priority}`).checked = true;
+    }
+}
+
+
 export function handleSubmit(e) {
     let data = new FormData(e.target);
     let category = e.target.classList[0];
