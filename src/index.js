@@ -5,8 +5,10 @@ import {
 } from './domEvents';
 import { init as initStore } from './store';
 import './style.css';
+import ghLogo from './assets/gh-logo.svg';
 
 initStore();
 initFormEvents();
 initProjectBarEvents();
 initTaskBarEvents();
+document.querySelector('.footer img').src = ghLogo;
