@@ -14,7 +14,9 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "css-loader": "^6.8.1",
     "date-fns": "^2.30.0",
-    "html-webpack-plugin": "^5.5.4"
+    "html-webpack-plugin": "^5.5.4",
+    "style-loader": "^3.3.3"
   }
 }
