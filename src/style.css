@@ -315,5 +315,6 @@ form button[type='reset']:hover {
   background-color: rgb(34, 34, 34);
 }
 .footer img {
-  width: 30px;
+  width: 26px;
+  margin: 5px;
 }
